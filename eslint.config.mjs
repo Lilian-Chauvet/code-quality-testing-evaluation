@@ -1,10 +1,10 @@
 import pluginJs from '@eslint/js';
-import eslintPlugin PrettierRecommended from 'eslint-plugin-prettier/recommended';
-import { defineConfig } from 'eslint/config';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
-export default defineConfig([
-{ languageOptions: { globals: { ...globals.node } } },
-pluginJs.configs.recommended,
-eslintPlugin PrettierRecommended,
-{ ignores: ['node_modules/**'] },
-]);
+
+export default [
+  { ignores: ['node_modules/**'] },
+  { languageOptions: { globals: { ...globals.node } } },
+  pluginJs.configs.recommended,
+  eslintPluginPrettierRecommended
+];
