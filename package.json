@@ -25,11 +25,17 @@
     "prettier": "^3.9.7"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": [
+    "packages/frontend/**/*.{js,jsx}": [
       "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "npm run test --workspace=frontend -- --watchAll=false --findRelatedTests"
     ],
-    "*.{json,css,md}": [
+    "packages/backend/**/*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "npm test -- --runInBand --findRelatedTests --passWithNoTests"
+    ],
+    "**/*.{json,css,md}": [
       "prettier --write"
     ]
   }
